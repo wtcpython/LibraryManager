@@ -19,7 +19,7 @@
      <x>10</x>
      <y>10</y>
      <width>341</width>
-     <height>396</height>
+     <height>415</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -44,7 +44,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>选择要添加的媒体种类</string>
+       <string>媒体种类</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -57,7 +57,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label_1">
       <property name="text">
-       <string>编号</string>
+       <string>编号 ID</string>
       </property>
      </widget>
     </item>
@@ -67,7 +67,7 @@
     <item row="2" column="0">
      <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>输入标题</string>
+       <string>标题</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -80,7 +80,7 @@
     <item row="3" column="0">
      <widget class="QLabel" name="label_3">
       <property name="text">
-       <string>输入作者的名称</string>
+       <string>作者名称</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -93,7 +93,7 @@
     <item row="4" column="0">
      <widget class="QLabel" name="label_4">
       <property name="text">
-       <string>选择评价分类等级</string>
+       <string>评价分类等级</string>
       </property>
      </widget>
     </item>
@@ -103,7 +103,7 @@
     <item row="5" column="0">
      <widget class="QLabel" name="label_5">
       <property name="text">
-       <string>输入出版社</string>
+       <string>出版社</string>
       </property>
      </widget>
     </item>
@@ -113,7 +113,7 @@
     <item row="6" column="0">
      <widget class="QLabel" name="label_6">
       <property name="text">
-       <string>输入ISBN</string>
+       <string>ISBN</string>
       </property>
      </widget>
     </item>
@@ -123,7 +123,7 @@
     <item row="7" column="0">
      <widget class="QLabel" name="label_7">
       <property name="text">
-       <string>输入页数</string>
+       <string>页数</string>
       </property>
      </widget>
     </item>
@@ -133,7 +133,7 @@
     <item row="8" column="0">
      <widget class="QLabel" name="label_8">
       <property name="text">
-       <string>输入出品者名称</string>
+       <string>出品者名称</string>
       </property>
      </widget>
     </item>

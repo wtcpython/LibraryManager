@@ -20,6 +20,7 @@ public:
 	AddItemDialog(QWidget* parent = nullptr);
 	~AddItemDialog();
 	void setMotiflyItem(Utils& utils);
+	void setMediaIndex(int index);
 
 	Book_1 getBook();
 	VideoCD_2 getCD();

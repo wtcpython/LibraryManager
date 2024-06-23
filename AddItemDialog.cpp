@@ -142,9 +142,8 @@ void AddItemDialog::setItem(int index)
 		ui->isbnLine->setText(book.getIsbn());
 		ui->pageLine->setText(QString::number(book.getPage()));
 	}
-	if (index == 1)
+	else if (index == 1)
 	{
-		VideoCD_2 cd;
 		ui->idLine->setText(QString::number(cd.getId()));
 		ui->titleLine->setText(cd.getTitle());
 		ui->authorLine->setText(cd.getAuthor());
@@ -153,9 +152,8 @@ void AddItemDialog::setItem(int index)
 		ui->yearLine->setText(QString::number(cd.getProductionYear()));
 		ui->videoLengthLine->setText(QString::number(cd.getVideoDuration()));
 	}
-	if (index == 2)
+	else if (index == 2)
 	{
-		Picture_2 pic;
 		ui->idLine->setText(QString::number(pic.getId()));
 		ui->titleLine->setText(pic.getTitle());
 		ui->authorLine->setText(pic.getAuthor());
@@ -202,4 +200,9 @@ void AddItemDialog::on_isbnLine_textChanged(QString text)
 		inValidList.removeAll(info);
 	}
 	ui->validText->setText(inValidList.join("\n"));
+}
+
+void AddItemDialog::setMediaIndex(int index)
+{
+	ui->mediaTypeBox->setCurrentIndex(index);
 }

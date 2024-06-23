@@ -167,6 +167,10 @@ void LibraryManager::AddItem(AddItemDialog& dialog, bool isEdit)
 		{
 			isExist = true;
 		}
+		else
+		{
+			ui->mediaTypeBox->setCurrentIndex(0);
+		}
 	}
 
 	else if (cd.getId() != 0)
@@ -175,6 +179,10 @@ void LibraryManager::AddItem(AddItemDialog& dialog, bool isEdit)
 		{
 			isExist = true;
 		}
+		else
+		{
+			ui->mediaTypeBox->setCurrentIndex(1);
+		}
 	}
 
 	else if (pic.getId() != 0)
@@ -182,6 +190,10 @@ void LibraryManager::AddItem(AddItemDialog& dialog, bool isEdit)
 		if (!utils.addPicItem(pic))
 		{
 			isExist = true;
+		}
+		else
+		{
+			ui->mediaTypeBox->setCurrentIndex(2);
 		}
 	}
 	if (isExist)
@@ -233,22 +245,28 @@ void LibraryManager::on_searchItemButton_clicked()
 	QString title = dialog.getTitle();
 	if (id != 0)
 	{
+		AddItemDialog dialog;
+		dialog.setWindowTitle("查询结果");
+
 		if (utils.searchBookItem(id))
 		{
-			Book_1 book = utils.getLastbook();
-			setBookItem(id - 1, book);
+			dialog.setMotiflyItem(utils);
+			dialog.setMediaIndex(0);
+			dialog.exec();
 		}
 
 		else if (utils.searchCDItem(id))
 		{
-			VideoCD_2 cd = utils.getLastcd();
-			setCDItem(id - 1, cd);
+			dialog.setMotiflyItem(utils);
+			dialog.setMediaIndex(1);
+			dialog.exec();
 		}
 
 		else if (utils.searchPicItem(id))
-		{
-			Picture_2 pic = utils.getLastpic();
-			setPicItem(id - 1, pic);
+		{	
+			dialog.setMotiflyItem(utils);
+			dialog.setMediaIndex(2);
+			dialog.exec();
 		}
 	}
 
