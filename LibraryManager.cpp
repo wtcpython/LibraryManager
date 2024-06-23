@@ -137,7 +137,7 @@ void LibraryManager::on_addItemButton_clicked()
 	AddItemDialog dialog;
 	dialog.setWindowTitle("添加物品");
 	dialog.exec();
-	AddItem(dialog);
+	AddItem(dialog, false);
 }
 
 void LibraryManager::on_editItemButton_clicked()
@@ -146,15 +146,21 @@ void LibraryManager::on_editItemButton_clicked()
 	dialog.setWindowTitle("编辑物品");
 	dialog.setMotiflyItem(utils);
 	dialog.exec();
-	AddItem(dialog);
+	AddItem(dialog, true);
 }
 
-void LibraryManager::AddItem(AddItemDialog& dialog)
+void LibraryManager::AddItem(AddItemDialog& dialog, bool isEdit)
 {
 	Book_1 book = dialog.getBook();
 	VideoCD_2 cd = dialog.getCD();
 	Picture_2 pic = dialog.getPic();
 	bool isExist = false;
+	if (isEdit)
+	{
+		utils.deleteItem(book.getId());
+		utils.deleteItem(cd.getId());
+		utils.deleteItem(pic.getId());
+	}
 	if (book.getId() != 0)
 	{
 		if (!utils.addBookItem(book))
@@ -230,19 +236,19 @@ void LibraryManager::on_searchItemButton_clicked()
 		if (utils.searchBookItem(id))
 		{
 			Book_1 book = utils.getLastbook();
-			setBookItem(id, book);
+			setBookItem(id - 1, book);
 		}
 
 		else if (utils.searchCDItem(id))
 		{
 			VideoCD_2 cd = utils.getLastcd();
-			setCDItem(id, cd);
+			setCDItem(id - 1, cd);
 		}
 
 		else if (utils.searchPicItem(id))
 		{
 			Picture_2 pic = utils.getLastpic();
-			setPicItem(id, pic);
+			setPicItem(id - 1, pic);
 		}
 	}
 
@@ -339,11 +345,11 @@ void LibraryManager::closeEvent(QCloseEvent* event)
 		if (res == QMessageBox::Yes)
 		{
 			on_actionSaveFile_triggered();
-			this->close();
+			event->accept();
 		}
-		else
+		else if (res == QMessageBox::No)
 		{
-			this->close();
+			event->accept();
 		}
 	}
 }

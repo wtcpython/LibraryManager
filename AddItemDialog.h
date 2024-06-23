@@ -31,10 +31,10 @@ private:
 	VideoCD_2 cd;
 	Picture_2 pic;
 	int lastIndex = 0;
+	QStringList inValidList;
 
 	void saveItem(int index, bool isTemplate);
 	void setItem(int index);
-	QStringList inValidList;
 
 private slots:
 	void on_mediaTypeBox_currentIndexChanged(int index);

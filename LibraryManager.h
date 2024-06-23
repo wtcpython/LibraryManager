@@ -4,6 +4,7 @@
 #include "dataio.h"
 #include "ui_LibraryManager.h"
 #include "utils.h"
+#include <QCloseEvent>
 #include <QtWidgets/QMainWindow>
 
 
@@ -18,7 +19,7 @@ class LibraryManager : public QMainWindow
 public:
 	LibraryManager(QWidget* parent = nullptr);
 	~LibraryManager();
-	void AddItem(AddItemDialog& dialog);
+	void AddItem(AddItemDialog& dialog, bool isEdit);
 	void setBookItem(int rowIndex, Book_1& book);
 	void setCDItem(int rowIndex, VideoCD_2& cd);
 	void setPicItem(int rowIndex, Picture_2& pic);
