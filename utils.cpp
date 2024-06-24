@@ -21,7 +21,7 @@ Picture_2 Utils::getLastpic()
 
 bool Utils::addBookItem(Book_1 book)
 {
-	if (!(this->IdExist(book.getId())))
+	if (!(this->isIdExist(book.getId())))
 	{
 		books[book.getId()] = book;
 		return true;
@@ -32,7 +32,7 @@ bool Utils::addBookItem(Book_1 book)
 
 bool Utils::addCDItem(VideoCD_2 cd)
 {
-	if (!(this->IdExist(cd.getId())))
+	if (!(this->isIdExist(cd.getId())))
 	{
 		cds[cd.getId()] = cd;
 		return true;
@@ -42,7 +42,7 @@ bool Utils::addCDItem(VideoCD_2 cd)
 
 bool Utils::addPicItem(Picture_2 pic)
 {
-	if (!(this->IdExist(pic.getId())))
+	if (!(this->isIdExist(pic.getId())))
 	{
 		pics[pic.getId()] = pic;
 		return true;
@@ -51,7 +51,7 @@ bool Utils::addPicItem(Picture_2 pic)
 
 }
 
-bool Utils::IdExist(int index)
+bool Utils::isIdExist(int index)
 {
 	for (Book_1 book : books)
 	{

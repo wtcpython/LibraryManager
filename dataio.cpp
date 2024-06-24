@@ -5,7 +5,7 @@
 DatabaseHandler::DatabaseHandler(QObject* parent) : QObject(parent)
 {}
 
-bool DatabaseHandler::isIdExists(int id, const QString tableName)
+bool DatabaseHandler::isIdExist(int id, const QString tableName)
 {
 	QSqlQuery query(m_database);
 
@@ -124,7 +124,7 @@ bool DatabaseHandler::insertBook(Book_1& book)
 {
 	QSqlQuery query(m_database);
 
-	if (isIdExists(book.getId(), "Books"))
+	if (isIdExist(book.getId(), "Books"))
 	{
 		query.prepare("UPDATE Books SET title = :title, author = :author, grade = :grade, "
 			"publishingHouse = :publishingHouse, isbn = :isbn, page = :page "
@@ -158,7 +158,7 @@ bool DatabaseHandler::insertCD(VideoCD_2& cd)
 	QSqlQuery query(m_database);
 
 	QString sqlQuery;
-	if (isIdExists(cd.getId(), "CDs"))
+	if (isIdExist(cd.getId(), "CDs"))
 	{
 		sqlQuery = "UPDATE CDs SET title = :title, author = :author, grade = :grade, "
 			"name = :name, PrioductionYear = :PrioductionYear, videoDuration = :videoDuration "
@@ -193,7 +193,7 @@ bool DatabaseHandler::insertPic(Picture_2& pic)
 	QSqlQuery query(m_database);
 
 	QString sqlQuery;
-	if (isIdExists(pic.getId(), "Pics"))
+	if (isIdExist(pic.getId(), "Pics"))
 	{
 		sqlQuery = "UPDATE Pics SET title = :title, author = :author, grade = :grade, "
 			"productionNationality = :productionNationality, length = :length, width = :width "

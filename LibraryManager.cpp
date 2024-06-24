@@ -6,8 +6,7 @@
 #include <QMessageBox>
 
 LibraryManager::LibraryManager(QWidget* parent)
-	: QMainWindow(parent)
-	, ui(new Ui::LibraryManagerClass())
+	: QMainWindow(parent), ui(new Ui::LibraryManagerClass())
 {
 	ui->setupUi(this);
 	setWindowIcon(QIcon("://res/icon.ico"));
@@ -263,13 +262,39 @@ void LibraryManager::on_searchItemButton_clicked()
 		}
 
 		else if (utils.searchPicItem(id))
-		{	
+		{
 			dialog.setMotiflyItem(utils);
 			dialog.setMediaIndex(2);
 			dialog.exec();
 		}
 	}
 
+	else if (title != nullptr)
+	{
+		AddItemDialog dialog;
+		dialog.setWindowTitle("查询结果");
+
+		if (utils.searchBookItem(title))
+		{
+			dialog.setMotiflyItem(utils);
+			dialog.setMediaIndex(0);
+			dialog.exec();
+		}
+
+		else if (utils.searchCDItem(title))
+		{
+			dialog.setMotiflyItem(utils);
+			dialog.setMediaIndex(1);
+			dialog.exec();
+		}
+
+		else if (utils.searchPicItem(title))
+		{
+			dialog.setMotiflyItem(utils);
+			dialog.setMediaIndex(2);
+			dialog.exec();
+		}
+	}
 }
 
 void LibraryManager::setTableItems()

@@ -23,7 +23,7 @@ public:
 	bool insertBook(Book_1& book);
 	bool insertPic(Picture_2& pic);
 
-	bool isIdExists(int id, const QString tableName);
+	bool isIdExist(int id, const QString tableName);
 
 	bool deleteLine(int id);
 	QString getFileName();
