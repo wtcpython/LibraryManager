@@ -1,6 +1,5 @@
 #pragma once
 
-#include "ui_AboutDialog.h"
 #include <QDialog>
 
 QT_BEGIN_NAMESPACE
